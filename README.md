@@ -11,11 +11,7 @@ FrostIQ is a browser-based Smart Fridge management system built across four Agil
 
 The entire application is a single `index.html` file. Open it in any modern browser and it works immediately — no build step, no installation, no internet required (except for the fonts). Easy stuff
 
-If you're hosting via GitHub Pages:
-
-```
-[https://<your-username>.github.io/<repo-name>/](https://cameronb007cs.github.io/Smart-Fridge-Project/)
-```
+Access Link to program is here: https://cameronb007cs.github.io/Smart-Fridge-Project/
 
 ---
 
