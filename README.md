@@ -77,35 +77,8 @@ No npm, no bundler, no framework. The whole application is one HTML file with in
 
 
 
-# Project Structure
-
-```
-smartfridge/
-├── index.html   # Complete self contained application (HTML + CSS + JS)
-└── README.md    # This file
-```
-
 Everything is bundled into `index.html` to eliminate the file-linking issues that can occur with relative paths in certain hosting configurations. The CSS uses a `:root` block of custom properties for the full colour palette, and the JS is organised into clearly labelled sections (State, Boot, Navigation, Inventory, Recipes, Shopping, Nutrition, Settings, Helpers).
 
-
-
-# Running It
-
-# Locally
-
-```bash
-# Option 1 — just double click index.html in your file explorer
-# Option 2 — run a local dev server to avoid any browser security restrictions
-python3 -m http.server 8080
-# then open http://localhost:8080
-```
-
-### GitHub Pages
-
-1. Push the repo to GitHub (only `index.html` and `README.md` are needed)
-2. Go to **Settings - Pages**
-3. Set the source branch to `main`, folder to root (`/`)
-4. GitHub will generate a live URL within a minute or two
 
 
 
@@ -137,7 +110,7 @@ Developed across four two week sprints for CST190.3.
 Each sprint followed standard Agile ceremonies — planning, daily standups, review, and retrospective. The backlog was maintained in a shared board and refined at the start of each sprint based on feedback from the previous review.
 
 
-# Ethical Considerations
+# Ethical things to consider
 
 **Data privacy.** All user data is stored exclusively in the browser's `localStorage` on the user's own device. Nothing is transmitted to any external server. There is no analytics, no tracking, and no third-party data sharing of any kind. Users can export their data as JSON or delete everything at any time from the Settings view.
 
