@@ -17,84 +17,84 @@ Access Link to program is here: https://cameronb007cs.github.io/Smart-Fridge-Pro
 
 ## Features
 
-### Dashboard
+# Dashboard
 - Time-aware greeting (morning / afternoon / evening) with live clock
 - Four KPI cards: total items, expiring soon, expired, and fresh
 - Animated arc gauge showing fridge capacity as a percentage
 - Status breakdown donut chart with legend
 - Environment panel showing current temperature, interior light level, and door status
-- Expiry timeline listing the next 7 items to expire, colour-coded by urgency
+- Expiry timeline listing the next 7 items to expire, colour coded by urgency
 - Quick-add strip for fast inventory entry without leaving the dashboard
 
-### Inventory
+# Inventory
 - Full CRUD — add items with name, category, quantity, and expiry date
-- Colour-coded status badges: **Fresh**, **Expiring Soon** (within 5 days), **Expired**
-- Filter by status and category; free-text search
+- Colour coded status badges: **Fresh**, **Expiring Soon** (within 5 days), **Expired**
+- Filter by status and category; free text search
 - Sort by name, expiry date, date added, or category
 - Quantity increment/decrement controls on each card
 - Disposal alert panel listing all expired items that should be thrown out
 
-### Recipes
+# Recipes
 - Recipe database matched against current fridge contents
-- Colour-coded match bar showing what percentage of ingredients you have
+- Colour coded match bar showing what percentage of ingredients you have
 - Filter by "Ready to Cook" (all required ingredients present) or partial match
-- Clickable cards open a detailed modal with step-by-step instructions, per-ingredient availability check, cook time, difficulty, serves, and calorie count
+- Clickable cards open a detailed modal with step by step instructions, per ingredient availability check, cook time, difficulty, serves, and calorie count
 
-### Shopping List
+# Shopping List
 - Manual item addition with High / Medium / Low priority levels
-- One-click auto-populate from expired and expiring-soon inventory
+- One-click auto-populate from expired and expiring soon inventory
 - Checkbox completion with live progress bar and percentage
 - Rough cost estimate for remaining unchecked items based on category averages
 
-### Nutrition Overview
+# Nutrition Overview
 - Estimated macro breakdown (protein, carbs, fat, fibre) from fresh fridge contents
 - Category distribution donut chart rendered on canvas
 - Auto-generated dietary tips based on what is and isn't in the fridge
 
-### Settings & Utilities
+# Settings & Utilities
 - Kitchen countdown timer with 1m, 5m, 10m, 30m, 1h presets and a custom input
 - Temperature, interior light, and freezer temperature sliders
-- Toggles for power-saving mode, door ajar alarm, and expiry notifications
-- Dietary preference chips (Omnivore, Vegetarian, Vegan, Gluten-free, etc.)
+- Toggles for power saving mode, door ajar alarm, and expiry notifications
+- Dietary preference chips (Omnivore, Vegetarian, Vegan, Gluten free, etc)
 - Household size setting
 - JSON data export
 - Full data reset
 
----
 
-## Tech Stack (Challenging)
+
+# Tech Stack (Challenging)
 
 | Concern       | Approach                                              |
-|---------------|-------------------------------------------------------|
+---------------------------------------------------------------------------------------
 | Language      | Vanilla HTML5, CSS3, JavaScript (ES6+)                |
 | Fonts         | Google Fonts — Syne (display), DM Sans (body)         |
 | Charts        | Native Canvas API — no Chart.js                       |
 | Persistence   | Browser `localStorage`                                |
-| Build tooling | None — single self-contained HTML file                |
+| Build tooling | None - single self contained HTML file                |
 | Hosting       | GitHub Pages (static, zero config)                    |
 
 No npm, no bundler, no framework. The whole application is one HTML file with inlined CSS and JS, which means deployment to GitHub Pages is literally just pushing the file and flipping the Pages switch.
 
----
 
-## Project Structure
+
+# Project Structure
 
 ```
 smartfridge/
-├── index.html   # Complete self-contained application (HTML + CSS + JS)
+├── index.html   # Complete self contained application (HTML + CSS + JS)
 └── README.md    # This file
 ```
 
 Everything is bundled into `index.html` to eliminate the file-linking issues that can occur with relative paths in certain hosting configurations. The CSS uses a `:root` block of custom properties for the full colour palette, and the JS is organised into clearly labelled sections (State, Boot, Navigation, Inventory, Recipes, Shopping, Nutrition, Settings, Helpers).
 
----
 
-## Running It
 
-### Locally
+# Running It
+
+# Locally
 
 ```bash
-# Option 1 — just double-click index.html in your file explorer
+# Option 1 — just double click index.html in your file explorer
 # Option 2 — run a local dev server to avoid any browser security restrictions
 python3 -m http.server 8080
 # then open http://localhost:8080
@@ -103,42 +103,41 @@ python3 -m http.server 8080
 ### GitHub Pages
 
 1. Push the repo to GitHub (only `index.html` and `README.md` are needed)
-2. Go to **Settings → Pages**
+2. Go to **Settings - Pages**
 3. Set the source branch to `main`, folder to root (`/`)
 4. GitHub will generate a live URL within a minute or two
 
----
 
-## Design Decisions
 
-**Single file.** The original three-file structure (index.html / style.css / app.js) worked perfectly in a local dev environment but introduced file-not-found issues when opened directly as a file in some browsers, and edge cases with relative path resolution on certain GitHub Pages configurations. Bundling everything into one HTML file eliminates all of that — it is the most robust delivery format for a static prototype with no build pipeline.
+# Design Decisions
+
+**Single file.** The original three file structure (index.html / style.css / app.js) worked perfectly in a local dev environment but introduced file no found issues when opened directly as a file in some browsers, and edge cases with relative path resolution on certain GitHub Pages configurations. Bundling everything into one HTML file eliminates all of that — it is the most robust delivery format for a static prototype with no build pipeline.
 
 **No framework.** The scope of the project didn't justify the overhead. Bringing in React or Vue would have added a build step that slowed down sprint reviews. Vanilla JS meant: change a function, refresh, done.
 
-**localStorage for persistence.** We wanted real persistence across page refreshes without any backend infrastructure. localStorage gives you that with two lines of code and no deployment complexity. On first load, the app seeds eight demo items so the dashboard is immediately populated and interactive — reviewers don't have to manually add data just to see what it does.
+**localStorage for persistence.** What we aimed for in the project was real persistence across page refreshes without any backend infrastructure. localStorage gives you that with two lines of code and no deployment complexity. On first load, the app seeds eight demo items so the dashboard is immediately populated and interactive — reviewers don't have to manually add data just to see what it does.
 
 **Canvas for charts.** Chart.js is ~60KB. Drawing arcs is not complicated, and keeping it native means the app works fully offline after the fonts have loaded once.
 
 **Boot sequence.** Smart appliances have some form of system initialisation feedback — it communicates that the product has weight and complexity. A blank page snapping to content doesn't do the same thing. The animated ring and progress bar serve a genuine UX purpose.
 
----
 
-## Agile Context
 
-Developed across four two-week sprints for CST190.3.
+# Agile Context
+
+Developed across four two week sprints for CST190.3.
 
 | Sprint | Focus |
-|--------|-------|
-| 1 | Requirements gathering, user stories, initial wireframes |
-| 2 | Core inventory CRUD, expiry logic, basic UI scaffolding |
-| 3 | Recipe engine, shopping list, settings panel |
-| 4 | Nutrition view, UI polish, boot sequence, single-file delivery |
+------------------
+| 1 | Requirements gathering, user stories, initial wireframes (Kind of low quality) |
+| 2 | Core inventory CRUD, expiry logic, basic UI scaffolding, (Wireframes using figma) |
+| 3 | Recipe engine, shopping list, settings panel, Properly designed wireframes initially using python |
+| 4 | Nutrition view, UI polish, boot sequence, single file delivery, Final piece using a mix of Javascript, CSS, and HTML |
 
 Each sprint followed standard Agile ceremonies — planning, daily standups, review, and retrospective. The backlog was maintained in a shared board and refined at the start of each sprint based on feedback from the previous review.
 
----
 
-## Ethical Considerations
+# Ethical Considerations
 
 **Data privacy.** All user data is stored exclusively in the browser's `localStorage` on the user's own device. Nothing is transmitted to any external server. There is no analytics, no tracking, and no third-party data sharing of any kind. Users can export their data as JSON or delete everything at any time from the Settings view.
 
@@ -146,21 +145,16 @@ Each sprint followed standard Agile ceremonies — planning, daily standups, rev
 
 **Accessibility.** The interface uses colour contrast ratios that meet WCAG AA standards for the status indicators, and interactive elements are keyboard accessible. ARIA labelling could be expanded in a future sprint.
 
-**Nutritional disclaimers.** The macro estimates are approximations based on food category averages, not precise per-item nutritional databases. The application does not position itself as a dietary advice tool — the Nutrition view is explicitly framed as an estimate.
+**Nutritional disclaimers.** The macro estimates are approximations based on food category averages, not precise per item nutritional databases. The application does not position itself as a dietary advice tool — the Nutrition view is explicitly framed as an estimate.
 
----
 
-## Known Limitations
+# Known Limitations
 
-- Recipe ingredient matching is string-based, so "Greek Yoghurt" won't match a recipe that calls for plain "Yogurt". A future sprint would normalise ingredient names through a lookup table or fuzzy matching.
+- Recipe ingredient matching is stringbased, so "Greek Yoghurt" won't match a recipe that calls for plain "Yogurt". A future sprint would normalise ingredient names through a lookup table or fuzzy matching.
 - Nutrition figures are rough category averages, not verified nutritional data.
-- No multi-user support — all data lives in a single `localStorage` namespace.
+- No multiuser support — all data lives in a single `localStorage` namespace.
 - The kitchen timer resets on page reload (intentional — it is a session utility, not a persistent alarm).
 
-#Thanks for reading me :)
+# Thanks for reading me :)
 
----
 
-## Team
-
-CST190.3 Agile Mini-Project · Group 4 · Semester 1, 2026
