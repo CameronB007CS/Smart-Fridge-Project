@@ -55,30 +55,26 @@ Access Link to program is here: https://cameronb007cs.github.io/Smart-Fridge-Pro
 - Kitchen countdown timer with 1m, 5m, 10m, 30m, 1h presets and a custom input
 - Temperature, interior light, and freezer temperature sliders
 - Toggles for power saving mode, door ajar alarm, and expiry notifications
-- Dietary preference chips (Omnivore, Vegetarian, Vegan, Gluten free, etc)
+- Dietary preference chips (Vegetarian, Vegan, Gluten free, etc)
 - Household size setting
-- JSON data export
-- Full data reset
 
 
 
-# Tech Stack (Challenging)
+# Challenges Faced
 
 | Concern       | Approach                                              |
 ---------------------------------------------------------------------------------------
-| Language      | Vanilla HTML5, CSS3, JavaScript (ES6+)                |
-| Fonts         | Google Fonts — Syne (display), DM Sans (body)         |
-| Charts        | Native Canvas API — no Chart.js                       |
-| Persistence   | Browser `localStorage`                                |
-| Build tooling | None - single self contained HTML file                |
-| Hosting       | GitHub Pages (static, zero config)                    |
+| Language      | Vanilla HTML, CSS, JavaScript            
+| Fonts         | Google Fonts — Syne (display), DM Sans (For body)                              
+| Persistence   | Browser `localStorage`                                
+| Build tooling | None - single self contained HTML file                
+| Hosting       | GitHub Pages                    
 
-No npm, no bundler, no framework. The whole application is one HTML file with inlined CSS and JS, which means deployment to GitHub Pages is literally just pushing the file and flipping the Pages switch.
-
+No npm, no bundler, no framework. The whole application is one HTML file with inlined CSS and JS, which means deployment to GitHub Pages is quite literally just pushing the file and flipping the Pages switch.
 
 
-Everything is bundled into `index.html` to eliminate the file-linking issues that can occur with relative paths in certain hosting configurations. The CSS uses a `:root` block of custom properties for the full colour palette, and the JS is organised into clearly labelled sections (State, Boot, Navigation, Inventory, Recipes, Shopping, Nutrition, Settings, Helpers).
 
+Everything is bundled into `index.html` to eliminate the file linking issues that can occur with relative paths in certain hosting configurations. The CSS uses a `:root` block of custom properties for the full colour palette, and the JS is organised into clearly labelled sections (State, Boot, Navigation, Inventory, Recipes, Shopping, Nutrition, Settings, Helpers).
 
 
 
